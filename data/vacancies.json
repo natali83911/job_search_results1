@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Начинающий чат-сотрудник для Озон",
+        "url": "https://hh.ru/vacancy/120361234",
+        "salary": "45300 - 65300 RUR",
+        "description": "У вас грамотная письменная речь. Наличие ПК/ноутбука, стабильного интернета и гарнитуры."
+    },
+    {
+        "title": "Менеджер проектов",
+        "url": "https://hh.ru/vacancy/121138030",
+        "salary": "Зарплата не указана",
+        "description": "Опыт проектной работы от 2х лет. Умение эффективно работать с требованиями и формализовывать их в ТЗ. Наличие практического опыта..."
+    },
+    {
+        "title": "Тестировщик веб-приложений",
+        "url": "https://hh.ru/vacancy/120800634",
+        "salary": "Зарплата не указана",
+        "description": "Опыт E2E-тестирования от 2+ лет. Знание <highlighttext>Python</highlighttext> + Pytest, TypeScript + Playwright. Опыт тестирования API (REST..."
+    },
+    {
+        "title": "Тестировщик",
+        "url": "https://hh.ru/vacancy/120972964",
+        "salary": "Зарплата не указана",
+        "description": "Можете работать с GNU/Linux-подобными операционными системами. Умеете читать код на <highlighttext>python</highlighttext>. Умеете по логам выяснить, в чем ошибка..."
+    },
+    {
+        "title": "QA manual middle (web) / ручной тестировщик",
+        "url": "https://hh.ru/vacancy/121109395",
+        "salary": "Зарплата не указана",
+        "description": "Тестирование API с помощью Swagger, Postman. Опыт работы с Gitlab. Опыт тестирования мобильных приложений. Опыт работы с <highlighttext>Python</highlighttext> и Selenium."
+    }
+]

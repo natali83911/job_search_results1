@@ -1,7 +1,5 @@
 import re
 
-from src.api_hh import HeadHunterAPI
-
 
 class Vacancy:
     __slots__ = ["title", "url", "salary", "description"]
@@ -75,18 +73,3 @@ class Vacancy:
             vacancy = cls(title, url, salary, description)
             objects.append(vacancy)
         return objects
-
-
-if __name__ == "__main__":
-    api = HeadHunterAPI()
-    vacancies_json = api.get_vacancies(keyword="Python", per_page=5, area=113)  # 113 — Россия
-    print(f"Найдено вакансий: {len(vacancies_json)}")
-
-    vacancies = Vacancy.cast_to_object_list(vacancies_json)
-
-    for vac in vacancies:
-        print(f"Название: {vac.title}")
-        print(f"Ссылка: {vac.url}")
-        print(f"Зарплата: {vac.salary}")
-        print(f"Описание: {vac.description[:100]}...")
-        print("-" * 40)
