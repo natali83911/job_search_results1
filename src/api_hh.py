@@ -44,12 +44,3 @@ class HeadHunterAPI(AbstractAPI):
             raise ConnectionError(f"Ошибка получения вакансий: {response.status_code}")
         data = response.json()
         return data.get("items", [])
-
-
-# if __name__ == "__main__":
-#
-#     api = HeadHunterAPI()
-#     vacancies = api.get_vacancies(keyword="Python", per_page=5, area=113)  # 113 — Россия
-#     print(f"Найдено вакансий: {len(vacancies)}")
-#     for v in vacancies:
-#         print(f"{v['name']} | {v.get('salary')} | {v['alternate_url']}")
