@@ -1,9 +1,9 @@
+from typing import List, Optional, Tuple
+
 from .api_hh import HeadHunterAPI
 from .config import PATH_TO_JSON
 from .json_saver import JSONSaver
 from .vacancy import Vacancy
-from typing import Optional, Tuple, List
-
 
 
 def get_user_input() -> Optional[Tuple[str, int, int]]:
@@ -87,7 +87,7 @@ def user_interaction() -> None:
         )
         saved_vacancies.append(vac)
 
-    # Фильтруем по ключевым словам в описании
+    # Фильтрация по ключевым словам в описании
     if filter_words:
         filtered = [vac for vac in saved_vacancies if any(word in vac.description.lower() for word in filter_words)]
     else:
@@ -97,7 +97,26 @@ def user_interaction() -> None:
     sorted_vacancies = sorted(filtered, reverse=True)
 
     # Вывод топ N вакансий
-    print(f"\nТоп {top_n} вакансий по зарплате:")
+    print(f"\nТоп {top_n} вакансий по зарплате:", flush=True)
     for vac in sorted_vacancies[:top_n]:
-        print(f"{vac.title} | {vac.salary} | {vac.url}")
-        print(f"{vac.description}\n")
+        print(f"{vac.title} | {vac.salary} | {vac.url}", flush=True)
+        print(f"{vac.description}\n", flush=True)
+
+    # Удаление вакансий
+    delete_choice = input("Хотите удалить вакансию по URL? (да/нет): ").strip().lower()
+    if delete_choice == "да":
+        url_to_delete = input("Введите URL вакансии для удаления: ").strip()
+        vacancies = saver.get_vacancies()
+        for v in vacancies:
+            if v["url"] == url_to_delete:
+                vac_obj = Vacancy(
+                    title=v["title"],
+                    url=v["url"],
+                    salary=v["salary"],
+                    description=v["description"],
+                )
+                saver.delete_vacancy(vac_obj)
+                print("Вакансия удалена.")
+                break
+        else:
+            print("Вакансия с таким URL не найдена.")

@@ -1,9 +1,7 @@
 import json
 from abc import ABC, abstractmethod
 
-from .api_hh import HeadHunterAPI
 from .config import PATH_TO_JSON
-from .vacancy import Vacancy
 
 
 class AbstractSaver(ABC):
