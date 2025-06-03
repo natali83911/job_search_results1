@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
+from typing import Any, Dict, List, Optional
 
 import requests
-from typing import Optional, List, Dict, Any
 
 from .config import USER_AGENT
 
@@ -30,7 +30,7 @@ class HeadHunterAPI(AbstractAPI):
         Устанавливает базовый URL и заголовки для запросов"""
         self.__base_url = "https://api.hh.ru/vacancies"
         self.__headers = {"User-Agent": USER_AGENT}
-        self.__session : Optional[requests.Session] = None
+        self.__session: Optional[requests.Session] = None
 
     def _connect(self) -> requests.Response:
         """Устанавливает сессию и проверяет доступность API HeadHunter"""
@@ -50,4 +50,9 @@ class HeadHunterAPI(AbstractAPI):
         if response.status_code != 200:
             raise ConnectionError(f"Ошибка получения вакансий: {response.status_code}")
         data = response.json()
-        return data.get("items", [])
+        if not isinstance(data, dict):
+            return []
+        items = data.get("items", [])
+        if not isinstance(items, list):
+            return []
+        return items

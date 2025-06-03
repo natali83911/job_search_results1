@@ -1,5 +1,5 @@
 import re
-from typing import List, Optional, Any, Dict
+from typing import Any, Dict, List, Optional
 
 
 class Vacancy:
@@ -36,10 +36,14 @@ class Vacancy:
     def __le__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() <= other._salary_to_int()
 
-    def __eq__(self, other: "Vacancy") -> bool:
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Vacancy):
+            return NotImplemented
         return self._salary_to_int() == other._salary_to_int()
 
-    def __ne__(self, other: "Vacancy") -> bool:
+    def __ne__(self, other: object) -> bool:
+        if not isinstance(other, Vacancy):
+            return NotImplemented
         return self._salary_to_int() != other._salary_to_int()
 
     def __gt__(self, other: "Vacancy") -> bool:

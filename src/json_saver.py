@@ -1,10 +1,9 @@
 import json
 from abc import ABC, abstractmethod
-from typing import Optional, List, Dict, Any
+from typing import Any, Dict, List, Optional
 
 from .config import PATH_TO_JSON
 from .vacancy import Vacancy
-
 
 
 class AbstractSaver(ABC):
@@ -30,7 +29,7 @@ class AbstractSaver(ABC):
 class JSONSaver(AbstractSaver):
     """Класс для сохранения вакансий в JSON-файл"""
 
-    def __init__(self, filename=PATH_TO_JSON):
+    def __init__(self, filename: str = PATH_TO_JSON) -> None:
         """Инициализация экземпляра JSONSaver"""
         self.__filename = filename
 
@@ -59,6 +58,9 @@ class JSONSaver(AbstractSaver):
                     # Если файл пустой или повреждённый, считаем, что данных нет
                     data = []
         except FileNotFoundError:
+            data = []
+
+        if not isinstance(data, list):
             data = []
 
         if criteria is None:
