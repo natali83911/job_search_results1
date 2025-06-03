@@ -1,4 +1,5 @@
 import re
+from typing import List, Optional, Any, Dict
 
 
 class Vacancy:
@@ -22,32 +23,32 @@ class Vacancy:
         self.salary = self._validate_salary(salary)
         self.description = description
 
-    def _validate_salary(self, salary):
+    def _validate_salary(self, salary: Optional[str]) -> str:
         """Проверяет и нормализует значение зарплаты"""
         if not salary or salary == "" or salary is None:
             return "Зарплата не указана"
         return salary
 
     # Методы сравнения по зарплате
-    def __lt__(self, other):
+    def __lt__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() < other._salary_to_int()
 
-    def __le__(self, other):
+    def __le__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() <= other._salary_to_int()
 
-    def __eq__(self, other):
+    def __eq__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() == other._salary_to_int()
 
-    def __ne__(self, other):
+    def __ne__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() != other._salary_to_int()
 
-    def __gt__(self, other):
+    def __gt__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() > other._salary_to_int()
 
-    def __ge__(self, other):
+    def __ge__(self, other: "Vacancy") -> bool:
         return self._salary_to_int() >= other._salary_to_int()
 
-    def _salary_to_int(self):
+    def _salary_to_int(self) -> int:
         """Преобразует строку зарплаты в целое число для сравнения.
         Берёт первое найденное число в строке.
         Если чисел нет — возвращает 0"""
@@ -63,7 +64,7 @@ class Vacancy:
             return 0
 
     @classmethod
-    def cast_to_object_list(cls, vacancies_json):
+    def cast_to_object_list(cls, vacancies_json: List[Dict[str, Any]]) -> List["Vacancy"]:
         """Преобразует список вакансий в формате JSON (список словарей) в список объектов Vacancy"""
         objects = []
         for item in vacancies_json:
