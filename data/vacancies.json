@@ -1,15 +1,21 @@
 [
     {
-        "title": "Начинающий чат-сотрудник для Озон",
-        "url": "https://hh.ru/vacancy/120361234",
-        "salary": "45300 - 65300 RUR",
-        "description": "У вас грамотная письменная речь. Наличие ПК/ноутбука, стабильного интернета и гарнитуры."
+        "title": "QA engineer Middle / инженер - тестировщик",
+        "url": "https://hh.ru/vacancy/121226475",
+        "salary": "Зарплата не указана",
+        "description": "Дополнительными преимуществами будут: Навыки написания скриптов (Shell/Bash, <highlighttext>Python</highlighttext>,). Навыки автоматизированного тестирования на любом из языке программирования. Опыт работы с..."
     },
     {
-        "title": "Менеджер проектов",
-        "url": "https://hh.ru/vacancy/121138030",
+        "title": "Java-разработчик (Инвестиционный бизнес)",
+        "url": "https://hh.ru/vacancy/121207878",
         "salary": "Зарплата не указана",
-        "description": "Опыт проектной работы от 2х лет. Умение эффективно работать с требованиями и формализовывать их в ТЗ. Наличие практического опыта..."
+        "description": "Опыт разработки и уверенное знание Java 8+. Опыт разработки и уверенное знание Spring Framework (Spring Core, Spring Boot, Spring..."
+    },
+    {
+        "title": "Backend разработчик python (junior)",
+        "url": "https://hh.ru/vacancy/121211572",
+        "salary": "до 150000 RUR",
+        "description": "Опыт разработки Backend (<highlighttext>Python</highlighttext>) приложений от 1 года. Опыт применения фреймворков/библиотек под <highlighttext>Python</highlighttext>. Знание паттернов проектирования: GOF, SOLID. "
     },
     {
         "title": "Тестировщик веб-приложений",
@@ -19,14 +25,8 @@
     },
     {
         "title": "Тестировщик",
-        "url": "https://hh.ru/vacancy/120972964",
+        "url": "https://hh.ru/vacancy/120468412",
         "salary": "Зарплата не указана",
-        "description": "Можете работать с GNU/Linux-подобными операционными системами. Умеете читать код на <highlighttext>python</highlighttext>. Умеете по логам выяснить, в чем ошибка..."
-    },
-    {
-        "title": "QA manual middle (web) / ручной тестировщик",
-        "url": "https://hh.ru/vacancy/121109395",
-        "salary": "Зарплата не указана",
-        "description": "Тестирование API с помощью Swagger, Postman. Опыт работы с Gitlab. Опыт тестирования мобильных приложений. Опыт работы с <highlighttext>Python</highlighttext> и Selenium."
+        "description": "Опыт нагрузочного тестирования. Опыт написания скриптов в Postman. Знание языка программирования - <highlighttext>Python</highlighttext> и фреймворка Pytest/Playwright. Высшее профессиональное техническое образование."
     }
 ]

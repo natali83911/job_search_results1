@@ -2,15 +2,28 @@ import re
 
 
 class Vacancy:
+    """Класс, представляющий вакансию с основными атрибутами:
+    - title: название вакансии
+    - url: ссылка на вакансию
+    - salary: информация о зарплате (строка)
+    - description: описание вакансии"""
+
     __slots__ = ["title", "url", "salary", "description"]
 
     def __init__(self, title: str, url: str, salary: str, description: str):
+        """Инициализация объекта вакансии.
+
+        :param title: название вакансии
+        :param url: ссылка на вакансию
+        :param salary: зарплата в виде строки
+        :param description: описание вакансии"""
         self.title = title
         self.url = url
         self.salary = self._validate_salary(salary)
         self.description = description
 
     def _validate_salary(self, salary):
+        """Проверяет и нормализует значение зарплаты"""
         if not salary or salary == "" or salary is None:
             return "Зарплата не указана"
         return salary
@@ -35,6 +48,9 @@ class Vacancy:
         return self._salary_to_int() >= other._salary_to_int()
 
     def _salary_to_int(self):
+        """Преобразует строку зарплаты в целое число для сравнения.
+        Берёт первое найденное число в строке.
+        Если чисел нет — возвращает 0"""
         if isinstance(self.salary, str):
             nums = re.findall(r"\d+", self.salary.replace(" ", ""))
             if nums:
@@ -48,6 +64,7 @@ class Vacancy:
 
     @classmethod
     def cast_to_object_list(cls, vacancies_json):
+        """Преобразует список вакансий в формате JSON (список словарей) в список объектов Vacancy"""
         objects = []
         for item in vacancies_json:
             title = item.get("name", "Без названия")
